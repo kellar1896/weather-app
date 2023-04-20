@@ -3,10 +3,10 @@ import "./App.css";
 import { loadCities } from "./features/cities/citiesSlice";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import LoadingIntro from "./components/molecules/loading-intro";
+import Router from "./router";
 
 function App() {
   const dispatch = useAppDispatch();
-  const cities = useAppSelector((state) => state.cities.cities);
   const isLoadingCities = useAppSelector((state) => state.cities.isLoading)
 
   useEffect(() => {
@@ -16,9 +16,7 @@ function App() {
   return (
     <div className="App">
       {isLoadingCities ? <LoadingIntro /> : null}
-      {cities.slice(0,100).map((city, index) => 
-        <span key={`city_${index}`}>{city.name}</span>
-      )}
+      <Router />
     </div>
   );
 }
