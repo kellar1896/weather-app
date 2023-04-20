@@ -1,4 +1,4 @@
-import { PageRoute } from "../app/types";
+import { PageRoute } from "../app/types/routes";
 import CityPage from "../pages/city";
 import HomePage from "../pages/home";
 

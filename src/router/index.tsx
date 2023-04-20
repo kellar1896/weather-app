@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { Route, Routes } from "react-router-dom";
-import { PageRoute } from "../app/types";
+import { PageRoute } from "../app/types/routes";
 import { routes } from "./routes.config";
 
 

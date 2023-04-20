@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { City } from "../../app/types";
+import { City } from "../../app/types/cities";
 
 type InputFilteredProps = {
   placeholder?: string;

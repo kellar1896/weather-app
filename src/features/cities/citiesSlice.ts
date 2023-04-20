@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { City } from "../../app/types";
 import { CitiesServices } from "../../services/cities.Service";
 import { RootState } from "../../app/store";
+import { City } from "../../app/types/cities";
 
 export interface CitiesState {
     cities: City[];
