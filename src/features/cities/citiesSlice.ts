@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { City } from "../../app/types";
+import { CitiesServices } from "../../services/cities.Service";
 
 export interface CitiesState {
     cities: City[];
@@ -13,9 +14,10 @@ const initialState: CitiesState  = {
     hasError: false
 }
 
-export const loadCities = createAsyncThunk("users/getAllUsers", async () => {
-    // const cities = await userServices.fetchCities();
-    return [] as City[];
+export const loadCities = createAsyncThunk("cities/getCities", async () => {
+    const citiesService = new CitiesServices()
+    const cities = await citiesService.fetchCities();
+    return cities.response;
   });
 
 export const citiesSlice = createSlice({
