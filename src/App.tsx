@@ -14,7 +14,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className="App font-mono">
       {isLoadingCities ? <LoadingIntro /> : null}
       <Router />
     </div>
