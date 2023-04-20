@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { City } from "../../app/types";
 import { CitiesServices } from "../../services/cities.Service";
+import { RootState } from "../../app/store";
 
 export interface CitiesState {
     cities: City[];
@@ -39,6 +40,14 @@ export const citiesSlice = createSlice({
           });
     },
 });
+
+export const selectAllCities = (state: RootState) => state.cities.cities
+
+export const selectFilteredCities = (state: RootState, searchTerm: string)=> {
+    const allCities = selectAllCities(state);
+    const filteredCities = allCities.filter((city)=> city.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    return filteredCities.slice(0,10);
+}
 
 export default citiesSlice.reducer;
 
