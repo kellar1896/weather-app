@@ -39,7 +39,6 @@ const PreviewWeatherCard = ({
     return getIconImage(cityWeather.current.weather[0].icon)
   },[cityWeather])
 
-console.log(cityWeather)
   return (
     <div className="bg-ivory rounded-xl p-2 text-jet w-52" onClick={onClick}>
       <div className="flex flex-col items-start">
