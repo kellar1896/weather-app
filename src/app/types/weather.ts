@@ -35,18 +35,20 @@ export type WeatherDescription = {
   }
   
   export type DailyWeather = {
+    dt: number
     sunrise: number
     sunset: number
     humidity: number
     clouds: number
     wind_speed: number
-    temp: TempEstimation[]
+    temp: TempEstimation
     feels_like: TempFeelsLike
     weather: WeatherDescription[]
   }
   
   
   export type CityWeather = {
+      dt: number
       city: City;
       timezone: String;
       current: CurrentWeather;
