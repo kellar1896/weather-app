@@ -5,7 +5,7 @@ import './loading-intro.css'
 
 const LoadingIntro = () => {
   return (
-    <div className="w-screen h-screen bg-blue-200 flex items-center justify-center overflow-hidden">
+    <div className="w-screen h-screen bg-powderBlue flex items-center justify-center overflow-hidden">
       <img className="weather-logo" src={weather} alt="weather-logo" />
     </div>
   );
