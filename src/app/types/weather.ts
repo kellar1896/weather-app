@@ -11,9 +11,11 @@ export type WeatherDescription = {
     sunrise: number
     sunset: number
     temp: number
+    feels_like: number
     humidity: number
     clouds: number
     wind_speed: number
+    weather: WeatherDescription[]
   }
   
   export type TempEstimation = {
