@@ -20,7 +20,7 @@ const CityPage = () => {
   return (
     <div className="h-screen w-screen overflow-auto bg-jet">
       <div className="w-full py-10 bg-ivory mb-10">
-        <div className="w-full md:w-10/12 mx-auto flex items-start justify-center">
+        <div className="w-full md:w-10/12 mx-auto flex flex-col md:flex-row items-start justify-center">
           <PreviewWeatherCard cityWeather={cityWeather} />
           <WeatherData
             humidity={cityWeather.current.humidity}

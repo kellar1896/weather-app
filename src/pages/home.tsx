@@ -91,7 +91,7 @@ const HomePage = () => {
           {listWeathers.length === 0 ? (
             <SkeletonCards />
           ) : (
-            <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 overflow-x-auto w-10/12 md:space-x-4">
+            <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 overflow-x-auto w-full md:w-10/12 md:space-x-4">
               {listWeathers.map(renderCityPreview)}
             </div>
           )}

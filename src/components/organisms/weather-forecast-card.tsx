@@ -10,10 +10,10 @@ type WeatherForecastCardProps = {
 
 const WeatherForecastCard = ({ dailyWeather }: WeatherForecastCardProps) => {
   return (
-    <div className="bg-powderBlue rounded-2xl w-full md:w-96 flex items-center justify-around p-2 flex-shrink-0 m-2 text-ivory">
+    <div className="bg-powderBlue rounded-2xl w-full md:w-96 flex items-center justify-around p-2 flex-shrink-0 my-2 md:m-2 text-ivory">
       <img
         src={getIconImage(dailyWeather.weather[0].icon)}
-        className="w-24"
+        className="w-14 md:w-24"
         alt=""
       />
       <div className="flex flex-col items-start w-full">

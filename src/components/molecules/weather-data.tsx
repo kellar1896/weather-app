@@ -20,7 +20,7 @@ const WeatherData = ({
   windSpeed,
 }: WeatherDataProps) => {
   return (
-    <div className="flex flex-row justify-around w-full">
+    <div className="flex flex-col md:flex-row justify-around w-full">
       {tempMax && (
         <div className="flex flex-col items-start">
           <span className="text-jet">Temp</span>
