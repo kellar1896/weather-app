@@ -8,6 +8,7 @@ export type WeatherDescription = {
   }
   
   export type CurrentWeather = {
+    dt: number
     sunrise: number
     sunset: number
     temp: number
