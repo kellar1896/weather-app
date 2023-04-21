@@ -12,9 +12,11 @@ import ButtonStyled from "../components/atoms/button-styled";
 import SkeletonCards from "../components/atoms/skeleton-cards";
 import { CityWeather } from "../app/types/weather";
 import PreviewWeatherCard from "../components/organisms/preview-weather-card";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const [searchWord, setSearchWord] = useState("");
   const filteredCities = useAppSelector((state) =>
     selectFilteredCities(state, searchWord)
@@ -36,12 +38,16 @@ const HomePage = () => {
     dispatch(getCityWeather(filteredCities[0]));
   }, [dispatch, filteredCities, listWeathers]);
 
-  const renderCityPreview = useCallback((cityWeather: CityWeather, index: number)=>{
-        return (
-          <PreviewWeatherCard cityWeather={cityWeather} onClick={()=>{}} />
-        );
-     
-  },[])
+  const renderCityPreview = (cityWeather: CityWeather, index: number) => {
+    return (
+      <PreviewWeatherCard
+        cityWeather={cityWeather}
+        onClick={() => {
+          navigate(`/city/${cityWeather.city.city_code}`);
+        }}
+      />
+    );
+  };
 
   return (
     <section className="h-screen">
@@ -85,8 +91,8 @@ const HomePage = () => {
           {listWeathers.length === 0 ? (
             <SkeletonCards />
           ) : (
-            <div className="flex flex-col items-center space-y-3 md:flex-row md:items-end overflow-x-auto w-full md:space-x-4">
-                {listWeathers.map(renderCityPreview)}
+            <div className="flex flex-col md:flex-row space-y-3 overflow-x-auto w-10/12 md:space-x-4">
+              {listWeathers.map(renderCityPreview)}
             </div>
           )}
         </div>
