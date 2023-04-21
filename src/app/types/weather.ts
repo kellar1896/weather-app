@@ -49,4 +49,6 @@ export type WeatherDescription = {
       timezone: String;
       current: CurrentWeather;
       daily: DailyWeather[]
+      isLoading: boolean
+      hasError: boolean
   }
