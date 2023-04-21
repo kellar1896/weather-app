@@ -1,3 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
   text-align: center;
+}
+
+
+@layer base{
+  :root
+    {
+    --jet: #3C3744;
+    --dark-blue: #090C9B;
+    --byzantine-blue: #3D52D5;
+    --powder-blue: #B4C5E4;
+    --ivory: #FBFFF1;
+  }
 }
