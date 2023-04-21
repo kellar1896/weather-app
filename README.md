@@ -17,6 +17,7 @@
 
 ### FHS
 
+```
 src
 ├── App.css
 ├── App.tsx
@@ -38,3 +39,4 @@ src
 ├── router          (app router handler)
 ├── services        (api services definitions)
 └── tools           (useful tools for the app)
+```
