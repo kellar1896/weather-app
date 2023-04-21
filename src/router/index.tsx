@@ -8,7 +8,7 @@ const Router = () => {
 
     const renderRoute = useCallback((route: PageRoute) => {
         return (
-            <Route path={route.path} element={<route.element/>}>
+            <Route path={route.path} key={route.path} element={<route.element/>}>
                 {route.children?.map((childRoute) => renderRoute(childRoute))}
             </Route>
         )
