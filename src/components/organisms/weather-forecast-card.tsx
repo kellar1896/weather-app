@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { DailyWeather } from "../../app/types/weather";
 import { getIconImage } from "../../tools/iconsProvider";
-import { getAmPmTime, getDate, getDay, getMonth } from "../../tools";
-import WeatherFeature from "../atoms/weather-feature";
+import { getDate, getDay, getMonth } from "../../tools";
+import WeatherData from "../molecules/weather-data";
 
 type WeatherForecastCardProps = {
   dailyWeather: DailyWeather;
@@ -30,31 +30,7 @@ const WeatherForecastCard = ({ dailyWeather }: WeatherForecastCardProps) => {
             </p>
           </div>
         </div>
-        <div className="flex flex-row justify-around w-full">
-          <div className="flex flex-col items-start">
-            <span className="text-jet">Temp</span>
-            <WeatherFeature label="Min:" value={`${dailyWeather.temp.min}°C`} />
-            <WeatherFeature label="Max:" value={`${dailyWeather.temp.max}°C`} />
-          </div>
-          <div className="flex flex-col items-start">
-            <WeatherFeature
-              label="Sunrise"
-              value={getAmPmTime(dailyWeather.sunrise)}
-            />
-            <WeatherFeature
-              label="Sunset"
-              value={getAmPmTime(dailyWeather.sunset)}
-            />
-            <WeatherFeature
-              label="Humidity"
-              value={`${dailyWeather.humidity}%`}
-            />
-            <WeatherFeature
-              label="Wind Speed"
-              value={`${dailyWeather.wind_speed}m/s`}
-            />
-          </div>
-        </div>
+        <WeatherData humidity={dailyWeather.humidity} sunrise={dailyWeather.sunrise} sunset={dailyWeather.sunset}  tempMax={dailyWeather.temp.max}  tempMin={dailyWeather.temp.min}  windSpeed={dailyWeather.wind_speed} />
       </div>
     </div>
   );
