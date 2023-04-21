@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+# Weather Forecast Page for manage Cities and forecast
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+## Prerequisites
 
-## Available Scripts
+  - A Node version of at least 16 is required to create a React App.
+  - Npm is a package manager. It is automatically included in your Node installation. You should have at least npm version 8.
 
-In the project directory, you can run:
+## How to run the project
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Install dependencies with `npm install`
+- you can edit the package.json scripts if you wanna change the ports of the server or the web portal
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+###  Stack of technologies used
+- This project was bootstrapped with **Create React App**, using the **Redux** and **Redux Toolkit TS** template.
+- **Tailwind CSS** as a stylesheet provider, for his fast develop way
 
-### `npm test`
+### FHS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+src
+├── App.css
+├── App.tsx
+├── app
+│   ├── hooks.ts  (hooks with the types of the app)
+│   ├── store.ts  (store of the app)
+│   └── types     (types used all over the app)
+├── assets        (graphic content used in the app)
+├── components    (components saved in atom design pattern)
+│   ├── atoms
+│   ├── molecules
+│   └── organisms
+├── features       (slices of the store)
+│   ├── cities     (slice of cities)
+│   └── weathers   (slice of the forecast from cities)
+├── index.css
+├── index.tsx
+├── pages           (navigation pages of the app)
+├── router          (app router handler)
+├── services        (api services definitions)
+└── tools           (useful tools for the app)
