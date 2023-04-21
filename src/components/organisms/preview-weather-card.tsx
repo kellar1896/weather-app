@@ -40,7 +40,7 @@ const PreviewWeatherCard = ({
   },[cityWeather])
 
   return (
-    <div className="bg-ivory rounded-xl p-2 text-jet w-64 flex-shrink-0" onClick={onClick}>
+    <div className="bg-ivory rounded-xl p-2 text-jet w-64 flex-shrink-0 cursor-pointer" onClick={onClick}>
       <div className="flex flex-col items-start">
         <h4 className="font-bold text-lg">{cityWeather?.city.name}</h4>
         <span className="text-xs">
