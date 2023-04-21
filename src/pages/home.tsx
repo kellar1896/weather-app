@@ -11,6 +11,7 @@ import {
 import ButtonStyled from "../components/atoms/button-styled";
 import SkeletonCards from "../components/atoms/skeleton-cards";
 import { CityWeather } from "../app/types/weather";
+import PreviewWeatherCard from "../components/organisms/preview-weather-card";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
@@ -36,25 +37,12 @@ const HomePage = () => {
   }, [dispatch, filteredCities, listWeathers]);
 
   const renderCityPreview = useCallback((cityWeather: CityWeather, index: number)=>{
-    const { city, current, timezone, isLoading, hasError } = cityWeather;
-    if (isLoading) {
         return (
-          <SkeletonCards key={`${city.city_code}_weather_${index}`} />
+          <PreviewWeatherCard cityWeather={cityWeather} onClick={()=>{}} />
         );
-      } else if (hasError) {
-        return <span>Algo esta cargando mal</span>;
-      } else {
-        return (
-          <div key={`${city.city_code}_weather_${index}`}>
-            <span>{current.temp}</span>
-            <span>{city.name}</span>
-            <span>{timezone}</span>
-          </div>
-        );
-      }
+     
   },[])
 
-  console.log(listWeathers, "climas");
   return (
     <section className="h-screen">
       <div className="relative w-full h-4/6 md:h-3/5 flex  items-end">
@@ -90,14 +78,14 @@ const HomePage = () => {
         </div>
       </div>
       <div className="bg-powderBlue  h-auto md:h-2/5 py-10">
-        <div className="flex flex-col w-full md:w-10/12 mx-auto items-start">
+        <div className="flex flex-col w-11/12 md:w-10/12 mx-auto items-start">
           <h3 className="text-jet font-bold text-base md:text-lg">
             Cities Forecast
           </h3>
           {listWeathers.length === 0 ? (
             <SkeletonCards />
           ) : (
-            <div className="flex flex-col md:flex-row overflow-x-auto w-full">
+            <div className="flex flex-col items-center space-y-3 md:flex-row md:items-end overflow-x-auto w-full md:space-x-4">
                 {listWeathers.map(renderCityPreview)}
             </div>
           )}
