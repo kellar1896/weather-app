@@ -71,12 +71,22 @@ export const getCityWeather =
       } as CityWeather;
       dispatch(updateWeather(updatedWeather));
     } catch (error) {
-        dispatch(setErrorLoadWeather(city));
+      dispatch(setErrorLoadWeather(city));
     }
     dispatch(cleanCurrentLoadWeather());
   };
 
 export const selectAllWeathers = (state: RootState) => state.weathers.weathers;
-export const selectCurrentLoadWeather = (state: RootState) => state.weathers.currentLoadWeather;
+export const selectCurrentLoadWeather = (state: RootState) =>
+  state.weathers.currentLoadWeather;
+export const selectCityWeatherByCityCode = (
+  state: RootState,
+  cityCode: string | undefined
+) => {
+  if (cityCode === undefined) return undefined;
+  return state.weathers.weathers.find(
+    (weather) => weather.city.city_code === cityCode
+  );
+};
 
 export default weathersSlice.reducer;
