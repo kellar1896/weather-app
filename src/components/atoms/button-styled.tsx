@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 type ButtonStyledProps = {
   onClick: () => void;
@@ -21,4 +21,4 @@ const ButtonStyled = ({
   );
 };
 
-export default ButtonStyled;
+export default memo(ButtonStyled);
