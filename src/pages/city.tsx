@@ -4,6 +4,7 @@ import { useAppSelector } from "../app/hooks";
 import { selectCityWeatherByCityCode } from "../features/weathers/weathersSlice";
 import PreviewWeatherCard from "../components/organisms/preview-weather-card";
 import WeatherForecastCard from "../components/organisms/weather-forecast-card";
+import WeatherData from "../components/molecules/weather-data";
 
 const CityPage = () => {
   const { cityId } = useParams();
@@ -18,8 +19,16 @@ const CityPage = () => {
     );
   return (
     <div className="h-screen w-screen overflow-auto bg-jet">
-      <div className="w-full md:w-10/12 mx-auto">
-        <PreviewWeatherCard cityWeather={cityWeather} />
+      <div className="w-full py-10 bg-ivory mb-10">
+        <div className="w-full md:w-10/12 mx-auto flex items-start justify-center">
+          <PreviewWeatherCard cityWeather={cityWeather} />
+          <WeatherData
+            humidity={cityWeather.current.humidity}
+            sunrise={cityWeather.current.sunrise}
+            sunset={cityWeather.current.sunset}
+            windSpeed={cityWeather.current.wind_speed}
+          />
+        </div>
       </div>
       <div className="flex flex-col md:flex-wrap md:flex-row w-full md:w-10/12 mx-auto md:justify-between">
         {cityWeather.daily.map((dailyWeather, index) => {
