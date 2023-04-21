@@ -2,6 +2,7 @@ import React, { memo, useCallback } from "react";
 import { CityWeather } from "../../app/types/weather";
 import iconWeather from "../../assets/icons/day/01d.png";
 import { getIconImage } from "../../tools/iconsProvider";
+import { getAmPmTime, getDay } from "../../tools";
 
 type PreviewWeatherCardProps = {
   cityWeather: CityWeather;
@@ -39,12 +40,22 @@ const PreviewWeatherCard = ({
     return getIconImage(cityWeather.current.weather[0].icon)
   },[cityWeather])
 
+  const renderDay = useCallback(()=>{
+    if(cityWeather.isLoading) return "---"
+    return getDay(cityWeather?.current.dt)
+  },[cityWeather])
+
+  const renderHour = useCallback(()=>{
+    if(cityWeather.isLoading) return "---"
+    return getAmPmTime(cityWeather?.current.dt)
+  },[cityWeather])
+
   return (
     <div className="bg-ivory rounded-xl p-2 text-jet w-64 flex-shrink-0 cursor-pointer" onClick={onClick}>
       <div className="flex flex-col items-start">
         <h4 className="font-bold text-lg">{cityWeather?.city.name}</h4>
         <span className="text-xs">
-          Mon, 1:00 pm, Time Zone: {renderTimeZone()}
+          {renderDay()}, {renderHour()}, Time Zone: {renderTimeZone()}
         </span>
       </div>
       <div>
